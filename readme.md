@@ -1,3 +1,5 @@
+Based on [Sworm](https://github.com/tolgaek/simplorm.git)
+
 # SWORM
 
 A very lightweight **write only** Node.js ORM, with support for:
