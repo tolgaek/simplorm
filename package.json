@@ -1,10 +1,9 @@
 {
-  "name": "sworm",
+  "name": "simplorm",
   "version": "0.4.0",
-  "description": "a lightweight write-only ORM for MSSQL, MySQL, PostgreSQL",
+  "description": "a lightweight ORM for MSSQL",
   "main": "index.js",
   "directories": {
-    "test": "test"
   },
   "dependencies": {
     "bluebird": "^2.2.2",
@@ -25,24 +24,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/featurist/sworm.git"
+    "url": "https://github.com/tolgaek/simplorm.git"
   },
   "keywords": [
     "activerecord",
     "database",
-    "postgres",
-    "postgresql",
-    "mysql",
     "orm",
     "mssql",
     "sqlserver",
     "sql",
-    "server"
+    "server",
+    "ms sql"
   ],
-  "author": "Tim Macfarlane <timmacfarlane@gmail.com>",
+  "author": "Tolga Ekmen <tolga.ekmen@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/featurist/sworm/issues"
-  },
-  "homepage": "https://github.com/featurist/sworm"
 }
