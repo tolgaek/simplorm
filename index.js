@@ -427,8 +427,12 @@
             throw new Error("You must provide an id to select with");
           }
           var statementString = "select * from " + self._meta.table + " where " + self._meta.id + " = " + id;
-          gen9_onFulfilled(Promise.resolve(obj._meta.db.query(statementString)).then(function(result) {
-            return result;
+          gen9_onFulfilled(Promise.resolve(obj._meta.db.query(statementString)).then(function(rows) {
+            var r = rows[0]
+            if(_.has(obj._meta, 'publicFields')) {
+              r = _.pick(r, obj._meta.publicFields);
+            }
+            return r;
           }));
         });
       } 
@@ -458,16 +462,18 @@
       config: config,
       model: function(modelConfig) {
         var self = this;
-        var foreignKeyFor, id, table, modelPrototype, model;
+        var foreignKeyFor, id, table, publicFields, modelPrototype, model;
         foreignKeyFor = option(modelConfig, "foreignKeyFor");
         id = option(modelConfig, "id", "id");
         table = option(modelConfig, "table");
+        publicFields = option(modelConfig, "publicFields", []);
         modelConfig._meta = {
           table: table,
           id: id,
           db: self,
           foreignKeyFor: foreignKeyFor,
-          compoundKey: id instanceof Array
+          compoundKey: id instanceof Array,
+          publicFields: publicFields
         };
         modelPrototype = prototypeExtending(rowBase, modelConfig);
         model = function(obj, gen49_options) {
