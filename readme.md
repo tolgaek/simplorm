@@ -1,4 +1,4 @@
-Based on [@featurist Sworm ORM](https://github.com/tolgaek/simplorm.git)
+Based on [featurist's](https://github.com/featurist) [Sworm ORM library](https://github.com/featurist/sworm)
 
 # SWORM
 
